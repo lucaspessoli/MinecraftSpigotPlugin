@@ -1,0 +1,11 @@
+name: untitled3
+version: '1.0-SNAPSHOT'
+main: textplugin.untitled3.Untitled3
+api-version: 1.19
+commands:
+  sethealth:
+    description: set whatever health u want
+    usage: /<command>
+  spawnanimal:
+    description: spawn whatever animal or entity u want
+    usage: /<command>
