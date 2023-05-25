@@ -34,7 +34,7 @@ public final class Untitled3 extends JavaPlugin {
                 player.sendMessage(ChatColor.GREEN + "life setted to: " + vida);
             }
         }
-        if(command.getName().equals("spawnanimal")){
+        if(command.getName().equals("spawnentity")){
             String entity = args[0];
             EntityType animalInformed = null;
             animalInformed = EntityType.valueOf(entity.toUpperCase());
@@ -45,7 +45,7 @@ public final class Untitled3 extends JavaPlugin {
                 for(int i=0;i<quantity;i++){
                     w.spawnEntity(player.getLocation(), animalInformed);
                 }
-                player.sendMessage(ChatColor.LIGHT_PURPLE + entity + " was spawned" + quantity + " times!");
+                player.sendMessage(ChatColor.LIGHT_PURPLE + entity + " was spawned: " + quantity + " times!");
             }
         }
         return true;

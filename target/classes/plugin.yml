@@ -6,6 +6,6 @@ commands:
   sethealth:
     description: set whatever health u want
     usage: /<command>
-  spawnanimal:
+  spawnentity:
     description: spawn whatever animal or entity u want
     usage: /<command>

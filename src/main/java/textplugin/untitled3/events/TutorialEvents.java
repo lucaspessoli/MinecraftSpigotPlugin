@@ -1,15 +1,18 @@
 package textplugin.untitled3.events;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Pig;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.*;
+import org.bukkit.inventory.ItemStack;
 
 public class TutorialEvents implements Listener {
 
@@ -52,10 +55,17 @@ public class TutorialEvents implements Listener {
     public static void onPlayerThrowEgg(PlayerEggThrowEvent event){
         Player player = event.getPlayer();
         event.setHatching(true);
-        event.setHatchingType(EntityType.CREEPER);
-        event.setNumHatches((byte) 5);
         Location e = event.getEgg().getLocation();
         player.teleport(e);
+    }
+    @EventHandler
+    public static void onRightClick(PlayerInteractAtEntityEvent event){
+        Player player = event.getPlayer();
+        if(event.getRightClicked() instanceof Pig) {
+            player.sendMessage(ChatColor.GREEN + "interacted with pig");
+            ItemStack kit1 = new ItemStack(Material.DIAMOND_AXE);
+            player.getInventory().setItem(1,kit1);
+        }
     }
 
 
