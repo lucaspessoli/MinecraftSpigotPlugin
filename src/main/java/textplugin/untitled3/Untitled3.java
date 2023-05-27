@@ -12,6 +12,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import textplugin.untitled3.events.TutorialEvents;
 
+import java.util.ArrayList;
+
 public final class Untitled3 extends JavaPlugin {
 
     @Override
@@ -68,9 +70,19 @@ public final class Untitled3 extends JavaPlugin {
             Player player = (Player) sender;
             World w = player.getWorld();
             w.setMonsterSpawnLimit(0);
-            for(Entity element: w.getEntities()){
-                getLogger().info("entity:" + element);
-                player.sendMessage(ChatColor.DARK_GREEN + "" +element);
+            for(Entity entity: w.getEntities()){
+                getLogger().info("entity:" + entity);
+                player.sendMessage(ChatColor.DARK_GREEN + "" +entity);
+            }
+        }
+        if(command.getName().equals("cleanentities")){
+            Player player = (Player) sender;
+            World w = player.getWorld();
+            for(Entity entity : w.getEntities()){
+                if(!(entity instanceof Player)){
+                    entity.remove();
+                    player.sendMessage(ChatColor.DARK_GREEN + "" + entity + " was cleaned");
+                }
             }
         }
         return true;

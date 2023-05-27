@@ -15,3 +15,6 @@ commands:
   getentities:
     description: kill all entities
     usage: /<command>
+  cleanentities:
+    description: removes all entities that is not player
+    usage: /<command>
