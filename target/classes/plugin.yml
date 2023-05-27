@@ -18,3 +18,9 @@ commands:
   cleanentities:
     description: removes all entities that is not player
     usage: /<command>
+  debugtest:
+    description: dev tool
+    usage: /<command>
+  gravity:
+    description: turns on/off gravity
+    usage: /<command>

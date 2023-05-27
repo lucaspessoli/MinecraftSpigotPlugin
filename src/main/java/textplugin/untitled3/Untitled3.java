@@ -85,6 +85,22 @@ public final class Untitled3 extends JavaPlugin {
                 }
             }
         }
+        if(command.getName().equals("gravity")){
+            Player player = (Player) sender;
+            if(player.hasGravity()){
+                player.setGravity(false);
+                player.sendMessage(ChatColor.GREEN + "Gravity turned off");
+            }else{
+                player.setGravity(true);
+                player.sendMessage(ChatColor.GREEN + "Gravity turned on");
+            }
+        }
+
+        if(command.getName().equals("debugtest")){
+            Player player = (Player) sender;
+            World w = player.getWorld();
+            player.setGravity(false);
+        }
         return true;
     }
 }
