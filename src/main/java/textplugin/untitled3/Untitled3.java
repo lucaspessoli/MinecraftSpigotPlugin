@@ -5,6 +5,7 @@ import org.bukkit.GameMode;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,6 +18,7 @@ public final class Untitled3 extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(new TutorialEvents(), this);
+        getLogger().info("Starting");
     }
 
     @Override
@@ -60,6 +62,15 @@ public final class Untitled3 extends JavaPlugin {
             else if(player.getGameMode().equals(GameMode.CREATIVE)){
                 player.setFlySpeed(speed);
                 player.sendMessage(ChatColor.LIGHT_PURPLE + "Flying speed updated");
+            }
+        }
+        if(command.getName().equals("getentities")){
+            Player player = (Player) sender;
+            World w = player.getWorld();
+            w.setMonsterSpawnLimit(0);
+            for(Entity element: w.getEntities()){
+                getLogger().info("entity:" + element);
+                player.sendMessage(ChatColor.DARK_GREEN + "" +element);
             }
         }
         return true;

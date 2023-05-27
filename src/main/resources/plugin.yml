@@ -12,3 +12,6 @@ commands:
   flyspeed:
     description: controls fly speed
     usage: /<command>
+  getentities:
+    description: kill all entities
+    usage: /<command>
