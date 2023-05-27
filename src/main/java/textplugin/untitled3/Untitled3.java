@@ -1,6 +1,7 @@
 package textplugin.untitled3;
 
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -46,6 +47,19 @@ public final class Untitled3 extends JavaPlugin {
                     w.spawnEntity(player.getLocation(), animalInformed);
                 }
                 player.sendMessage(ChatColor.LIGHT_PURPLE + entity + " was spawned: " + quantity + " times!");
+            }
+        }
+        if(command.getName().equals("flyspeed")){
+            float speed = Float.parseFloat(args[0]);
+            Player player = (Player) sender;
+            if(player.getGameMode().equals(GameMode.SURVIVAL)){
+                World w = player.getWorld();
+                w.createExplosion(player.getLocation(), 5);
+                player.sendMessage(ChatColor.DARK_RED + "Trying to fly at survival mode?");
+            }
+            else if(player.getGameMode().equals(GameMode.CREATIVE)){
+                player.setFlySpeed(speed);
+                player.sendMessage(ChatColor.LIGHT_PURPLE + "Flying speed updated");
             }
         }
         return true;

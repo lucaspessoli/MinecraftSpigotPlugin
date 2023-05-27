@@ -9,3 +9,6 @@ commands:
   spawnentity:
     description: spawn whatever animal or entity u want
     usage: /<command>
+  flyspeed:
+    description: controls fly speed
+    usage: /<command>

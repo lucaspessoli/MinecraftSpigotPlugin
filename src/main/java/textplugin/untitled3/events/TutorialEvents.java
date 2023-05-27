@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -66,6 +67,11 @@ public class TutorialEvents implements Listener {
             ItemStack kit1 = new ItemStack(Material.DIAMOND_AXE);
             player.getInventory().setItem(1,kit1);
         }
+    }
+
+    @EventHandler
+    public static void onHeldChanges(PlayerItemHeldEvent event) {
+        Player player = event.getPlayer();
     }
 
 
