@@ -56,15 +56,8 @@ public final class Untitled3 extends JavaPlugin {
         if(command.getName().equals("flyspeed")){
             float speed = Float.parseFloat(args[0]);
             Player player = (Player) sender;
-            if(player.getGameMode().equals(GameMode.SURVIVAL)){
-                World w = player.getWorld();
-                w.createExplosion(player.getLocation(), 5);
-                player.sendMessage(ChatColor.DARK_RED + "Trying to fly at survival mode?");
-            }
-            else if(player.getGameMode().equals(GameMode.CREATIVE)){
-                player.setFlySpeed(speed);
-                player.sendMessage(ChatColor.LIGHT_PURPLE + "Flying speed updated");
-            }
+            player.setFlySpeed(speed);
+            player.sendMessage(ChatColor.LIGHT_PURPLE + "Flying speed updated to: " + speed);
         }
         if(command.getName().equals("getentities")){
             Player player = (Player) sender;
@@ -95,7 +88,21 @@ public final class Untitled3 extends JavaPlugin {
                 player.sendMessage(ChatColor.GREEN + "Gravity turned on");
             }
         }
-
+        if(command.getName().equals("fly")){
+            Player player = (Player) sender;
+            World w = player.getWorld();
+            if(player.getGameMode().equals(GameMode.SURVIVAL)){
+                if(player.getAllowFlight() == false){
+                    player.setAllowFlight(true);
+                    player.sendMessage(ChatColor.GREEN + "Fly enabled");
+                }else{
+                    player.setAllowFlight(false);
+                    player.sendMessage(ChatColor.GREEN + "Fly disabled");
+                }
+            }else{
+                player.sendMessage(ChatColor.RED + "you must be at survival mode to use this command");
+            }
+        }
         if(command.getName().equals("debugtest")){
             Player player = (Player) sender;
             World w = player.getWorld();

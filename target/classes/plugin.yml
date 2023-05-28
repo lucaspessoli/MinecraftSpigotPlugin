@@ -24,3 +24,6 @@ commands:
   gravity:
     description: turns on/off gravity
     usage: /<command>
+  fly:
+    description: turns on/off fly
+    usage: /<command>
