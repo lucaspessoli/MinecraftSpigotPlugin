@@ -27,3 +27,18 @@ commands:
   fly:
     description: turns on/off fly
     usage: /<command>
+  setarrowsbody:
+    description: arrowsss on my body
+    usage: /<command>
+  setarrowscooldown:
+    description: set arrows cooldown to be removed from your body
+    usage: /<command>
+  setwalkspeed:
+    description: set your walkspeed to a determinate speed
+    usage: /<command>
+  playerlistnamechanger:
+    description: changes your name at leaderboards (tab)
+    usage: /<command>
+  playerspickupitems:
+    description: sets if player can pickup items or not
+    usage: /<command>

@@ -12,6 +12,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import textplugin.untitled3.events.TutorialEvents;
 
+import java.security.Permission;
+import java.security.Permissions;
 import java.util.ArrayList;
 
 public final class Untitled3 extends JavaPlugin {
@@ -103,6 +105,54 @@ public final class Untitled3 extends JavaPlugin {
                 player.sendMessage(ChatColor.RED + "you must be at survival mode to use this command");
             }
         }
+        if(command.getName().equals("setarrowsbody")){
+            int arrows = Integer.parseInt(args[0]);
+            Player player = (Player) sender;
+            player.setArrowsInBody(arrows);
+            if(arrows == 0){
+                player.sendMessage(ChatColor.GREEN + "Arrows removed from your body");
+            }else{
+                player.sendMessage(ChatColor.GREEN + "" + arrows + " Arrows in your body");
+            }
+        }
+        if(command.getName().equals("setarrowscooldown")){
+            int arrows = Integer.parseInt(args[0]);
+            Player player = (Player) sender;
+            player.setArrowCooldown(arrows);
+            player.sendMessage(ChatColor.GREEN + "Arrows would be removed from your body in: " + arrows + " seconds...");
+        }
+        if(command.getName().equals("setwalkspeed")){
+            float speed = Float.parseFloat(args[0]);
+            Player player = (Player) sender;
+            player.setWalkSpeed(speed);
+            player.sendMessage(ChatColor.GREEN + "Walkspeed set to: " + speed);
+        }
+        if(command.getName().equals("playerlistnamechanger")){
+            Player player = (Player) sender;
+            try {
+                player.setPlayerListName(args[0]);
+                player.sendMessage(ChatColor.GREEN + "Sucess!");
+            }catch(Exception e){
+                player.sendMessage(ChatColor.RED + "Error! just one parameter is required");
+            }
+        }
+//        if(command.getName().equals("playerspickupitems")){
+//            boolean canGrabItem;
+//            Player player = (Player) sender;
+//            player.setCanPickupItems(false);
+//            World w = player.getWorld();
+//            for (Entity playerr : w.getEntities()){
+//                if(playerr instanceof Player){
+//                    if(((Player) playerr).getCanPickupItems()){
+//                        ((Player) playerr).setCanPickupItems(false);
+//                        player.sendMessage("Players cannot pickup items now");
+//                    }else{
+//                        ((Player) playerr).setCanPickupItems(true);
+//                        player.sendMessage("players can pickup items now");
+//                    }
+//                }
+//            }
+//        }
         if(command.getName().equals("debugtest")){
             Player player = (Player) sender;
             World w = player.getWorld();
